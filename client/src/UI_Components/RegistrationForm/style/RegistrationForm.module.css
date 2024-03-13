@@ -1,0 +1,35 @@
+.registration {
+	min-width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+
+input {
+	min-width: 100%;
+	border: 1px solid #ccc;
+	border-radius: .3rem;
+	outline: none;
+	padding: 10px;
+	background-color: #fff;
+}
+
+button {
+	min-width: 100%;
+	margin: 0;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: .3rem;
+	cursor: pointer;
+	outline: none;
+	background-color: #EDF7FA;
+	transition: .2s ease-in-out;
+}
+button:hover {
+	background-color: #D6EDEE;
+}
+a {
+	text-align: center;
+	text-decoration: none;
+}
