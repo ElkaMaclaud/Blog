@@ -1,0 +1,14 @@
+.wrapperPage {
+    height: calc(100vh - 102px);
+    margin: auto;
+    position: relative;
+    margin-bottom: 30px;
+}
+.content {
+    margin: auto;
+}
+.scrollUp {
+    position: fixed;
+    bottom: 50px;
+    right: 60px;
+}

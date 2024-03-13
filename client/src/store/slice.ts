@@ -6,11 +6,9 @@ type IAuthorization = {
 
 export interface IInitialState {
   success: boolean;
-  typePosition: "AUTH" | "REGISTRATION" | "BLOG";
 }
 const state: IInitialState = {
   success: false,
-  typePosition: "BLOG"
 };
 export const REGISTR_USER = createAsyncThunk<
   IAuthorization,
