@@ -1,0 +1,89 @@
+:root {
+	--padding: 22px;
+}
+
+.wrapperCard {
+	padding: var(--padding) 0;
+	height: fit-content;
+	display: flex;
+	gap: var(--padding);
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.wrapperCardImg {
+	min-width: 246px;
+	height: 180px;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.wrapperCardImg img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.worksDescription {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.worksHeader {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 38px;
+	letter-spacing: 0px;
+	text-align: left;
+}
+
+.worksDate {
+	display: flex;
+	gap: var(--padding);
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 26px;
+	letter-spacing: 0px;
+	text-align: left;
+}
+
+.worksYear {
+	width: 62px;
+	height: 25px;
+	border-radius: 16px;
+	background-color: #142850;
+	text-align: center;
+	color: #ffffff;
+}
+
+.worksLabel {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 29px;
+	letter-spacing: 0px;
+	color: #8695A4;
+}
+
+.worksText {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0px;
+}
+
+@media screen and (max-width: 850px) {
+	.wrapperCard {
+		flex-wrap: wrap;
+		height: fit-content;
+	}
+
+	/* .wrapperCardImg {
+		width: calc(100vw - 22px);
+	}
+
+	.wrapperCardImg img {
+		width: 100%;
+		height: 100%;
+	} */
+
+}

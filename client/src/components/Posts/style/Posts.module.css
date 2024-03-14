@@ -1,0 +1,50 @@
+.posts {
+	margin: 0 -180px;
+	padding: 0 180px;
+	height: 396px;
+	background-color: #EDF7FA;
+}
+
+.postsHeader {
+	display: flex;
+	justify-content: space-between;
+}
+
+.postsHeaderNew,
+.worksHeaderNew {
+	font-size: var(--padding);
+	font-weight: 400;
+	line-height: 60px;
+	letter-spacing: 0px;
+}
+
+.postsHeaderAll {
+	font-size: 16px;
+	line-height: 60px;
+	font-weight: 400;
+	letter-spacing: 0px;
+	color: #00A8CC;
+	cursor: pointer;
+	transition: .2s ease-in-out;
+}
+
+.postsHeaderAll:hover {
+	color: #007799;
+}
+
+.postsWrapper {
+	display: flex;
+	gap: var(--padding);
+}
+@media screen and (max-width: 850px) {
+	.posts {
+		width: 100%;
+		height: fit-content;
+		padding: 22px;
+	}
+
+	.postsWrapper {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,5 @@
+.worksWrapper {
+	display: flex;
+	flex-direction: column;
+
+}

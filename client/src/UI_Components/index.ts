@@ -1,0 +1,6 @@
+export { Fb } from "./Fb/Fb"
+export { Insta } from "./Insta/Insta"
+export { Group } from "./Group/Group"
+export { Linkedin } from "./Linkedin/Linkedin"
+export { CardPost } from "./CardPost/CardPost"
+export { CardWorks } from "./CardWorks/CardWorks"

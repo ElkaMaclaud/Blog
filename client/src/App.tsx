@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import BlogPage from "./components/BlogPage/BlogPage";
-import MainPage from "./components/MainPage/MainPage";
 import Auth from "./components/Registration/Auth";
 import Registration from "./components/Registration/Registration";
 import NotfoundPage from "./components/NotfoundPage/NotfoundPage";
 import { useAppSelector } from "./store/reduxHooks";
+import MainPage from "./Pages/MainPage/MainPage";
+import BlogPage from "./Pages/BlogPage/BlogPage";
 
 function App() {
   const token = useAppSelector(state => state.page.token)

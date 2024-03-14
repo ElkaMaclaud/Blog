@@ -1,0 +1,24 @@
+:root {
+	--padding: 22px;
+}
+
+.wrapperBlog {
+	padding: 0 180px;
+	height: fit-content;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 27px;
+}
+
+@media screen and (max-width: 1150px) {
+	.wrapperBlog {
+		padding: 0 50px;
+		height: fit-content;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 27px;
+	}
+}
+

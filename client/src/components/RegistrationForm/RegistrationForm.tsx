@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import classes from "./style/RegistrationForm.module.css"
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
-import { AUTH_USER, REGISTR_USER } from '../../store/slice';
+import { AUTH_USER, REGISTR_USER, SET_TRANSISION, SET_USER_DATA } from '../../store/slice';
 import { useNavigate } from 'react-router-dom';
 
 interface ActionCreators {
@@ -13,20 +13,25 @@ const actionCreators: ActionCreators = {
 };
 
 const RegistrationForm: FC<{ action: string; text: string }> = ({ action, text }) => {
-	const success = useAppSelector(state => state.page.success)
+	const { success, user, transition } = useAppSelector(state => state.page)
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
-	const [email, setemail] = useState("")
-	const [password, setPassword] = useState("")
+	const [email, setemail] = useState(user.email)
+	const [password, setPassword] = useState(user.password)
 	const handleClick = () => {
 		const actionFunction = actionCreators[action];
 		if (actionFunction) {
 			dispatch(actionFunction({ email, password }));
-			if (action === "REGISTR_USER" && success) {
-				navigate("/auth")
-			}
+			dispatch(SET_USER_DATA({ email, password }))
 		}
 	};
+	useEffect(() => {
+		if (success && transition) {
+			dispatch(SET_TRANSISION(false))
+			navigate("/auth")
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [success])
 	return (
 		<div className={classes.registration}>
 			<h2 className={classes.registration__header}>{text}</h2>
