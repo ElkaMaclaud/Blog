@@ -16,27 +16,21 @@ class authController {
 		try {
 			const errors = validationResult(req)
 			if (!errors.isEmpty()) {
-				return res.status(400).json({ message: "Ошибка при регистрации", errors })
+				return res.status(400).json({ success: false, message: "Ошибка при регистрации", errors })
 			}
 			const { email, password } = req.body
 			const candidate = await User.findOne({ email })
 			if (candidate) {
-				return res.status(400).json({ message: "Пользователь с таким именем уже существует" })
+				return res.status(400).json({ success: false, message: "Пользователь с таким именем уже существует" })
 			}
 			const hashPassword = bcrypt.hashSync(password, 7);
 			const user = new User({ email, password: hashPassword })
 			await user.save()
-			// res.setHeader('Access-Control-Allow-Origin', '*');
-			// res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-			// res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-			return res.json({ messsage: "Пользователь был успешно заригистрирован" })
+			return res.json({ success: true, message: "Пользователь был успешно заригистрирован" })
 		} catch (e) {
 			console.log(e)
-			res.status(400).json({ message: "Registration error" })
-
+			res.status(400).json({ success: false, message: "Registration error" })
 		}
-
 	}
 
 	async login(req, res) {

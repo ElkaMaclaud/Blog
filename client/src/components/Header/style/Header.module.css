@@ -1,39 +1,30 @@
 .headerWrapper {
     margin: auto;
-    padding: 0 10%;
-    background-color: #EDF7FA;
-    top: 0;
-    position: sticky;
-    z-index: 1;
-    box-shadow: 0px 0px 3px rgba(56, 49, 49, 0.5);
+    padding: 0 90px;
 }
 
 .header {
-    height: 80px;
-    font-size: 1rem;
-    max-width: 50%;
-    width: 50%;
-    margin: auto;
-    padding: 1.5rem 0;
+    margin-top: 27px;
+    margin-left: auto;
+    height: 43px;
+    top: 27px;
+    left: 856px;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     gap: 1rem;
-    align-items: center;
 }
-.icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.header h3 {
-    margin: 0;
-}
+
 .header a {
-    color: black;
     text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0px;
     transition: .1s ease-in-out;
 }
+
 .header a:hover {
-    color: blue;
+    color: blue
 }
+

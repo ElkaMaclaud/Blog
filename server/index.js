@@ -10,10 +10,10 @@ app.use(cors({
 }));
 app.use(express.json())
 app.use("/auth", authRouter)
-
+//console.log("//////////////////", process.env.PASSWORD, process.env.PORT)
 const start = async () => {
 	try {
-		await mongoose.connect(`mongodb+srv://elkamaclaud:${process.env.PASSWORD}@cluster0.9bh0b0z.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0`)
+		await mongoose.connect(`mongodb+srv://elkamaclaud:${process.env.PASSWORD || "62sH5glEwMjvCJr5"}@cluster0.9bh0b0z.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0`)
 		app.listen(PORT, () => console.log(`server started on port ${PORT}`))
 	} catch (e) {
 		console.log(e)
