@@ -15,7 +15,7 @@ const Posts = () => {
 				{posts.length > 0 && posts.map((post => {
 					const key = Math.random().toString(30).substring(2, 15)
 					return (
-						<CardPost key={key} {...post}/>
+						<div className={classes.post} key={key}><CardPost {...post} /></div>
 					)
 				}))}
 			</div>

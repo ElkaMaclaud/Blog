@@ -1,14 +1,10 @@
 {
   "users": [
     {
-      "email": "tunic",
-      "password": "$2a$07$8fjJmTtk7oICEsIMHwMW3e1kfDjN75RuAfly6VBdI9TtTmAEydV4a",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA0OTkxNDgsImV4cCI6MTcxMDU4NTU0OH0.a20rTlu_5ZUmPzucmFFZoNxblR2qvktd83aZ8R5VWqo"
-    },
-    {
-      "email": "Runcom",
-      "password": "$2a$07$bF2WCCMpU5I8gZFegGEFZOAEzqCuAHX/R5xEWYL9iU58HQ2gpdEP6",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1MDEwNDIsImV4cCI6MTcxMDU4NzQ0Mn0.6djT5gxsiulgvdT7apOHts5Ycx7MOee3Ld60lplgo6g"
+      "email": "Rubicon",
+      "password": "$2a$07$5B/T/cbkL/oAZXvY4ibkreVa1/jWJBTw.u6SgRPMwYyTsXF2PTfGS",
+      "id": "bmtibb39mm3",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1MDUzNjEsImV4cCI6MTcxMDU5MTc2MX0.fKmBvbk1X4m3zSSokoX1Cxlrqv3OfSRQdohVNq_Fqvg"
     }
   ],
   "data": {

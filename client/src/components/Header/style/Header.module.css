@@ -2,12 +2,11 @@
     margin: auto;
     padding: 0 90px;
     height: 140px;
+    position: relative;
 }
 
 .header {
-    margin-top: 27px;
     margin-left: auto;
-    height: 43px;
     display: flex;
     justify-content: right;
     gap: 22px;
@@ -18,13 +17,23 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 29px;
-    letter-spacing: 0px;
     transition: .1s ease-in-out;
+}
+
+.headerMobile {
+    display: none;
+    width: 40px;
+    height: 30px;
 }
 
 .header a:hover {
     color: blue
 }
-@media screen and (max-width: 1150px) {
-
+@media screen and (max-width: 850px) {
+    .header a {
+        display: none;
+    }
+    .headerMobile {
+        display: block;
+    }
 }

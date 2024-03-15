@@ -19,7 +19,7 @@ const Resume = () => {
 	return (
 		<div className={classes.resume}>
 			<div className={classes.description}>
-				<div className={classes.descriptionHeader}>{name}<br />{profession}</div>
+				<div className={classes.descriptionHeader}>Hi, I am {name},<br />{profession}</div>
 				<div className={classes.descriptionText}>{description}</div>
 				<a href={file} onClick={handleDownloadClick} download className={classes.descriptionDownload}>Download Resume</a>
 			</div>

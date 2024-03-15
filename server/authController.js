@@ -23,7 +23,7 @@ class authController {
 				return res.status(400).json({ success: false, message: "Пользователь с таким именем уже существует" })
 			}
 			const hashPassword = bcrypt.hashSync(password, 7);
-			const user = { email, password: hashPassword }
+			const user = { email, password: hashPassword, id: Math.random().toString(30).substring(2, 15) }
 			saveDataToFile(user)
 			return res.json({ success: true, message: "Пользователь был успешно заригистрирован" })
 		} catch (e) {
@@ -77,6 +77,7 @@ class authController {
 			if (!user) {
 				return res.status(400).json({ success: false, message: `Ошибка загрузки файла` })
 			}
+			// Тут немного харкода (файл только один, поэтому не посылаю имя файла с клиента, а жестко в коде его определяю!)
 			const file = "assets/ResumeJohn.doc";
 			const fileName = path.basename(file);
 			await fs.promises.access(file, fs.constants.F_OK);

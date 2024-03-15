@@ -10,9 +10,9 @@ const MainPage = () => {
   const showModal = useAppSelector(state => state.page.showModal)
   return (
     <div className={classes.wrapperPage}>
-      <Header />
-      <Outlet />
-      <Footer />
+      <div className={classes.header}><Header /></div>
+      <div className={classes.content}><Outlet /></div>
+      <div className={classes.footer}><Footer /></div>
       {showModal && <Modal />}
     </div>
   );

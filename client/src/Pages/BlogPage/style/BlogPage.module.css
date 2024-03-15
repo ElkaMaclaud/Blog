@@ -3,19 +3,20 @@
 }
 
 .wrapperBlog {
-	padding: 0 180px;
 	height: fit-content;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
 	gap: 27px;
+	padding: 100px 147px;
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 850px) {
 	.wrapperBlog {
 		padding: 0 50px;
 		height: fit-content;
 		margin: auto;
+		padding: 30px;
 		display: flex;
 		flex-direction: column;
 		gap: 27px;

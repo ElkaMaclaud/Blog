@@ -17,12 +17,16 @@
 	font-size: 44px;
 	font-weight: 700;
 	line-height: 60px;
-	letter-spacing: 0px;
 	text-align: left;
 }
 
 .descriptionText {
 	width: 497px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0px;
+	text-align: left;
 }
 
 .descriptionDownload {
@@ -51,10 +55,12 @@
 	height: 100%;
 	object-fit: cover;
 }
+
 @media screen and (max-width: 850px) {
 	.resume {
-		flex-wrap: wrap;
+		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 	}
 
 	.description {

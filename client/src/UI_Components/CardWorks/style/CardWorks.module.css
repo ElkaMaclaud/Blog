@@ -33,8 +33,6 @@
 	font-size: 26px;
 	font-weight: 700;
 	line-height: 38px;
-	letter-spacing: 0px;
-	text-align: left;
 }
 
 .worksDate {
@@ -43,8 +41,6 @@
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 26px;
-	letter-spacing: 0px;
-	text-align: left;
 }
 
 .worksYear {
@@ -53,14 +49,13 @@
 	border-radius: 16px;
 	background-color: #142850;
 	text-align: center;
-	color: #ffffff;
+	color: #fff;
 }
 
 .worksLabel {
 	font-size: 20px;
 	font-weight: 400;
-	line-height: 29px;
-	letter-spacing: 0px;
+	line-height: 29px;	
 	color: #8695A4;
 }
 
@@ -68,22 +63,22 @@
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 24px;
-	letter-spacing: 0px;
 }
 
 @media screen and (max-width: 850px) {
 	.wrapperCard {
 		flex-wrap: wrap;
-		height: fit-content;
+		height: auto;
 	}
 
-	/* .wrapperCardImg {
-		width: calc(100vw - 22px);
+	.wrapperCardImg {
+		width: 100%;
+		height: 50%;
 	}
 
 	.wrapperCardImg img {
 		width: 100%;
-		height: 100%;
-	} */
-
+		height: 50%;
+		border-radius: 12px;
+	}
 }
