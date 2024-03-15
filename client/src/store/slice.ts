@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { RootState } from "./Store";
 
 type IAuthorization = {
   email: string;
@@ -6,10 +7,10 @@ type IAuthorization = {
 };
 export type IResume = {
   name: string;
+  file?: string;
   avatar: string;
   profession: string;
   description: string;
-  file: string;
 }
 export type IPost = {
   header: string;
@@ -34,7 +35,7 @@ export interface IInitialState {
   transition: boolean;
   success: boolean;
   message: string;
-  token: string | null;  
+  token: string | null;
   showModal: boolean;
   user: IAuthorization;
   data: IData;
@@ -52,14 +53,13 @@ const state: IInitialState = {
       avatar: "",
       profession: "",
       description: "",
-      file: ""
     },
     posts: [],
     works: []
   },
 };
 export const REGISTR_USER = createAsyncThunk<
-  { success: boolean, message: string },
+  { success: boolean; message: string },
   IAuthorization,
   {
     rejectValue: string;
@@ -87,7 +87,7 @@ export const REGISTR_USER = createAsyncThunk<
   }
 });
 export const AUTH_USER = createAsyncThunk<
-  { token: string },
+  { success: boolean; message: string; token: string },
   IAuthorization,
   {
     rejectValue: string;
@@ -115,21 +115,21 @@ export const AUTH_USER = createAsyncThunk<
   }
 });
 export const FETCH_ALL_DATA = createAsyncThunk<
-  IData,
-  {
-    rejectValue: string;
-  }
->("page/FETCH_ALL_DATA", async (_, { rejectWithValue }) => {
+  { success: boolean; message: string; data: IData},
+  undefined,
+  { rejectValue: string; state: RootState }
+  >("page/FETCH_ALL_DATA", async(_, { rejectWithValue, getState }) => {
   try {
-    const response = await fetch("http://localhost:5000/auth/login", {
+    const response = await fetch("http://localhost:5000/auth/get_data", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${getState().page.token}`
       },
     })
     const data = await response.json();
-    if (data) {
-      return data.data as IData;
+    if (data.success) {
+      return data;
     } else {
       throw new Error(data.message);
     }
@@ -137,6 +137,30 @@ export const FETCH_ALL_DATA = createAsyncThunk<
     return rejectWithValue(`${error}`);
   }
 });
+export const FETCH_FILE = createAsyncThunk<
+  any,
+  undefined,
+  { rejectValue: string; state: RootState }
+>("page/FETCH_FILE", async (_, { rejectWithValue, getState }) => {
+  try {
+    const response = await fetch("http://localhost:5000/auth/download_resume", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${getState().page.token}`
+      },
+    });
+    const blob = await response.blob(); 
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "ResumeJohn.doc"; 
+    a.click(); 
+  } catch (error) {
+    return rejectWithValue(`${error}`);
+  }
+});
+
 
 const slice = createSlice({
   name: "Page",
@@ -192,7 +216,24 @@ const slice = createSlice({
       return {
         ...state,
         success: true,
-        data: action.payload
+        message: action.payload.message,
+        showModal: true,
+        data: {
+          resume: action.payload.data.resume || state.data.resume,
+          posts: action.payload.data.posts || [],
+          works: action.payload.data.works || [],
+        }
+      };
+    });
+    builder.addCase(FETCH_ALL_DATA.rejected, (state, action) => {
+      localStorage.setItem("access_token", "")
+      return {
+        ...state,
+        success: false,
+        showModal: true,
+        message: action.payload as string,
+        transition: true,
+        token: ""
       };
     });
   }

@@ -9,6 +9,8 @@ router.post("/registration",
 	check("password", "Пароль должен быть более 4 символов и не более 18 символов").notEmpty().isLength({ min: 4, max: 18 })],
 	controller.registration)
 router.post("/login", controller.login)
+router.get("/get_data", controller.getData)
+router.get("/download_resume", controller.getFile)
 
 
 module.exports = router

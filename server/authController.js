@@ -1,44 +1,12 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator")
-const { secret } = require("./config")
-const fs = require('fs');
-
-const generateAccessToken = (id) => {
-	const payload = {
-		id,
-	}
-	return jwt.sign(payload, secret, { expiresIn: "24h" })
-}
-
-const readFileUsers = () => {
-	try {
-		const currentData = JSON.parse(fs.readFileSync('db.json', 'utf8'));
-		return currentData.users;
-	} catch (err) {
-		console.error(err);
-		return [];
-	}
-}
-const readFileData = () => {
-	try {
-		const currentData = JSON.parse(fs.readFileSync('db.json', 'utf8'));
-		return currentData.data;
-	} catch (err) {
-		console.error(err);
-		return [];
-	}
-}
-
-const saveDataToFile = (newUser) => {
-	try {
-		const currentData = JSON.parse(fs.readFileSync('db.json', 'utf8'));
-		currentData.users.push(newUser);
-		fs.writeFileSync('db.json', JSON.stringify(currentData, null, 2), { encoding: 'utf8', flag: 'w' });
-	} catch (err) {
-		console.error(err);
-	}
-};
+const readFileUsers = require("./utils/readFileUsers")
+const generateAccessToken = require("./utils/generateAccessToken")
+const readFileData = require("./utils/readFileData")
+const saveDataToFile = require("./utils/saveDataToFile")
+const deleteUsersToFile = require("./utils/deleteUsersToFile")
+const path = require('path');
+const fs = require("fs");
 
 class authController {
 	async registration(req, res) {
@@ -57,10 +25,10 @@ class authController {
 			const hashPassword = bcrypt.hashSync(password, 7);
 			const user = { email, password: hashPassword }
 			saveDataToFile(user)
-			return res.json({ success: true, message: "Пользователь был успешно заригистрирован"})
+			return res.json({ success: true, message: "Пользователь был успешно заригистрирован" })
 		} catch (e) {
 			console.log(e)
-			res.status(400).json({ success: false, message: "Registration error" })
+			res.status(400).json({ success: false, message: "Ошибка регистрации" })
 		}
 	}
 	async login(req, res) {
@@ -69,25 +37,57 @@ class authController {
 			const users = await readFileUsers()
 			const user = await users.find(u => u.email === email);
 			if (!user) {
-				return res.status(400).json({ message: `Пользователь с таким ${email} не найден` })
+				return res.status(400).json({ success: false, message: `Пользователь с таким ${email} не найден` })
 			}
 			const validatePassword = bcrypt.compareSync(password, user.password)
 			if (!validatePassword) {
-				return res.status(400).json({ message: `Введен неверный пароль` })
+				return res.status(400).json({ success: false, message: `Введен неверный пароль` })
 			}
 			const token = generateAccessToken(user._id)
-			return res.json({ token })
+			deleteUsersToFile(user)
+			user.token = token
+			saveDataToFile(user)
+			return res.json({ success: true, token })
 		} catch (e) {
 			console.log(e)
-			res.status(400).json({ message: "Login error" })
+			res.status(400).json({ message: "Ошибка логина" })
 		}
 	}
 	async getData(req, res) {
 		try {
-			const data = await await readFileData()
-			res.json(data)
+			const token = req.header('Authorization').split(" ")[1];
+			// Проверяю токен в базе данных присутствует ли такой такой токен (жив ли ещё токен)
+			const users = await readFileUsers()
+			const user = await users.find(u => u.token === token);
+			if (!user) {
+				return res.status(400).json({ success: false, message: `Ошибка авторизации` })
+			}
+			const data = await readFileData()
+			res.json({ success: true, data: data, message: "Данные успешно получены" })
 		} catch (e) {
-			res.status(400).json({ message: "Get data error" })
+			res.status(400).json({ success: false, message: "Ошибка получения данных" })
+		}
+	}
+	async getFile(req, res) {
+		try {
+			const token = req.header('Authorization').split(" ")[1];
+			// Проверяю токен в базе данных присутствует ли такой такой токен (жив ли ещё токен)
+			const users = await readFileUsers()
+			const user = await users.find(u => u.token === token);
+			if (!user) {
+				return res.status(400).json({ success: false, message: `Ошибка загрузки файла` })
+			}
+			const file = "assets/ResumeJohn.doc";
+			const fileName = path.basename(file);
+			await fs.promises.access(file, fs.constants.F_OK);
+
+			res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
+			res.setHeader('Content-Type', 'application/octet-stream');
+
+			const fileStream = fs.createReadStream(file);
+			fileStream.pipe(res);
+		} catch (err) {
+			return res.status(404).json({ success: false, message: "Файл не найден"});
 		}
 	}
 }

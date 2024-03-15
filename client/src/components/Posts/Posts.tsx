@@ -1,17 +1,26 @@
-import React from 'react'
+import React from "react"
 import classes from "./style/Posts.module.css"
-import { CardPost } from '../../UI_Components'
+import { CardPost } from "../../UI_Components"
+import { useAppSelector } from "../../store/reduxHooks"
 
 const Posts = () => {
-  return (
-	  <div className={classes.posts}>
-		  <div className={classes.postsHeader}>
-			  <div className={classes.postsHeaderNew}>Recent posts</div>
-			  <div className={classes.postsHeaderAll}>View all</div>
-		  </div>
-		  <div className={classes.postsWrapper}><CardPost /><CardPost /></div>
-	  </div>
-  )
+	const posts = useAppSelector(state => state.page.data.posts)
+	return (
+		<div className={classes.posts}>
+			<div className={classes.postsHeader}>
+				<div className={classes.postsHeaderNew}>Recent posts</div>
+				<div className={classes.postsHeaderAll}>View all</div>
+			</div>
+			<div className={classes.postsWrapper}>
+				{posts.length > 0 && posts.map((post => {
+					const key = Math.random().toString(30).substring(2, 15)
+					return (
+						<CardPost key={key} {...post}/>
+					)
+				}))}
+			</div>
+		</div>
+	)
 }
 
 export default Posts

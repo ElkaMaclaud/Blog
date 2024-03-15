@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 import classes from "./style/Footer.module.css"
-import { Fb, Group, Insta, Linkedin } from '../../UI_Components'
+import { Fb, Group, Insta, Linkedin } from "../../UI_Components"
 
 const Footer = () => {
 	return (
@@ -10,7 +10,7 @@ const Footer = () => {
 				<Insta />
 				<Group />
 				<Linkedin />
-				</div>
+			</div>
 			<div className={classes.footerInfo}>Copyright ©2020 All rights reserved </div>
 		</main>
 	)

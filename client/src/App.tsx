@@ -8,12 +8,14 @@ import MainPage from "./Pages/MainPage/MainPage";
 import BlogPage from "./Pages/BlogPage/BlogPage";
 
 function App() {
-  const token = useAppSelector(state => state.page.token)
+  const {token, message} = useAppSelector(state => state.page)
   const navigate = useNavigate();
 
   useEffect(() => {
     if (token) {
       navigate("/home", { replace: true });
+    } else if (message) {
+      navigate("/auth", { replace: true });
     } else {
       navigate("/registration", { replace: true });
     }

@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from "react"
 import classes from "./style/RegistrationForm.module.css"
-import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
-import { AUTH_USER, REGISTR_USER, SET_TRANSISION, SET_USER_DATA } from '../../store/slice';
-import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from "../../store/reduxHooks";
+import { AUTH_USER, REGISTR_USER, SET_TRANSISION, SET_USER_DATA } from "../../store/slice";
+import { useNavigate } from "react-router-dom";
 
 interface ActionCreators {
 	[key: string]: any;
@@ -12,7 +12,7 @@ const actionCreators: ActionCreators = {
 	AUTH_USER
 };
 
-const RegistrationForm: FC<{ action: string; text: string }> = ({ action, text }) => {
+const RegistrationForm: FC<{ action: string}> = ({ action }) => {
 	const { success, user, transition } = useAppSelector(state => state.page)
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
@@ -34,10 +34,10 @@ const RegistrationForm: FC<{ action: string; text: string }> = ({ action, text }
 	}, [success])
 	return (
 		<div className={classes.registration}>
-			<h2 className={classes.registration__header}>{text}</h2>
+			<h2 className={classes.registration__header}>{action === "REGISTR_USER" ? "Registration" : "Authorization"}</h2>
 			<input value={email} onChange={(event) => setemail(event.target.value)} type="text" placeholder="Введите email..." />
 			<input value={password} onChange={(event) => setPassword(event.target.value)} type="password" placeholder="Введите пароль..." />
-			<button className={classes.registration__btn} onClick={handleClick}>Sign in</button>
+			<button className={classes.registration__btn} onClick={handleClick}>{action === "REGISTR_USER" ? "Sign up" : "Sign in"}</button>
 		</div>
 	)
 }

@@ -1,73 +1,23 @@
 {
   "users": [
     {
-      "email": "рррррррррррррр",
-      "password": "$2a$07$A9gU/5TQvvv66WdJFQgQ7uZOYkWrDeULrMdAn/6DLsUHFE5QC3OIy"
+      "email": "tunic",
+      "password": "$2a$07$8fjJmTtk7oICEsIMHwMW3e1kfDjN75RuAfly6VBdI9TtTmAEydV4a",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA0OTkxNDgsImV4cCI6MTcxMDU4NTU0OH0.a20rTlu_5ZUmPzucmFFZoNxblR2qvktd83aZ8R5VWqo"
     },
     {
-      "email": "cvvvvvvvvvvvvvvvvvv",
-      "password": "$2a$07$d4YeLSwBHsjmVqn7dvpY8uhkGipE734KMlgvhDfcXGJ1aJMI3OTKq"
-    },
-    {
-      "email": "nnnnnnnnnnnn",
-      "password": "$2a$07$M7VT.m8uzKmfkeWct0bGQePemHuvLgb0WWfLrKbJYU93qH49QbUfW"
-    },
-    {
-      "email": "utioyur",
-      "password": "$2a$07$5Xm3W9xncD6YK.xB/.NNcOJkFkvW1lu4qhSOtwJ1J9hydhqT6ep3i"
-    },
-    {
-      "email": "cvgbfbhg",
-      "password": "$2a$07$gk0o7EMvhL49rM1AJlcOY.alUh6X7ynCvKpGbZSHHlgoJ.xMbAwUS"
-    },
-    {
-      "email": "tfghfg",
-      "password": "$2a$07$0iPAIQdqCyNhr2SnrV8pR.nt3ZVYSwwJvLwiTaFOPpoj20vjNp4m."
-    },
-    {
-      "email": "nmjhjnbnn",
-      "password": "$2a$07$shLjJSRiHWUx6RfheBjpX.AUseSPIbDKJyAo/4TJmFtob1G.CeaVm"
-    },
-    {
-      "email": "nmjhjhhhhhhhhhhhhhhhhhh",
-      "password": "$2a$07$OvLprhVUM4wVAPfFZg7n2.Gcee/s2jD0BcrNFvp3LOPf2z0HY.dw."
-    },
-    {
-      "email": "rrrrrrrrrrrrrrrrr",
-      "password": "$2a$07$CEHZtJe07cmk32FLz7OgIeE2zPDYhRqn95ZfV9pwOkuF7y8W2h1pm"
-    },
-    {
-      "email": "bbbbbbbbbbbb",
-      "password": "$2a$07$83lEtWv3gSVlCW8Ssfyh.uf3YRHiHsGZs1jNZa.kAKGm.Pfs8zUvO"
-    },
-    {
-      "email": "bbbbbbbbbbbbgghh",
-      "password": "$2a$07$R1a5sKTRdUwILsBMPTtyOu9zHNV/GXq3bQPpKR75nCx3CvRJPlrDG"
-    },
-    {
-      "email": "klllllllllllllll",
-      "password": "$2a$07$nZ5506VXqG3o187PJCbHruNjWTCNvqgcuhj6p0w5OS84jJIhTC1qa"
-    },
-    {
-      "email": "ttttttttttttt999999999999",
-      "password": "$2a$07$1igQXrE4UfYdx8BDSUtm4OmH0Z8TGrh0HQVQdnVVE9PjGv1rm71ny"
-    },
-    {
-      "email": "rtrtryyyyyyyyyyyyyy",
-      "password": "$2a$07$3A/MvdGi0NpeihlHBSuio.MQHmH9GpWLxbplKgwN5pSvZG/tcdCuG"
-    },
-    {
-      "email": "Elka@gmail.com",
-      "password": "$2a$07$kShGVzY9r.WgiZHsqn60YuCwWbTp8wUI4t2ZJ3k3rlI/zZPmlBRoW"
+      "email": "Runcom",
+      "password": "$2a$07$bF2WCCMpU5I8gZFegGEFZOAEzqCuAHX/R5xEWYL9iU58HQ2gpdEP6",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1MDEwNDIsImV4cCI6MTcxMDU4NzQ0Mn0.6djT5gxsiulgvdT7apOHts5Ycx7MOee3Ld60lplgo6g"
     }
   ],
   "data": {
     "resume": {
       "name": "John",
+      "file": "ResumeJohn.doc",
       "avatar": "https://s3-alpha-sig.figma.com/img/c316/adc4/65a80990af3a0075303343f0d615c92a?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VL0rnuUcAp2kkrLzNh7rcC43s93BCMO5tLqYp6wIYFJGUW3SLvWh3X4P6wfgYG9ADUBPEYRqevJNekq01Lj4RWuME0i9wyZUXsHEBqRNXHxbUaZAb5NgBwuBxYRfdZaWAkaVWwCVgvk2hpBhkhhkmXr7fmxTk16z0xOKaANQGp4eEafi5Nxpwr419NKlwWNBobzrvkPwAy3K8qeHSiMnPWydJ1we81OMfbO1-XNCtCSpMK5ad02MCccMCcv1MiJCB0QpfLuCKhFodU2pxriLmmGWYnsKY7AojaQ2yGtBIF18aAm2j58VtN5S25YKa9VrA4GUdfaRPZrXQBGcyTJNow__",
       "profession": "Creative Technologist",
-      "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-      "file": "./Хамидуллина Элиза Эльвертовна.doc"
+      "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
     },
     "posts": [
       {

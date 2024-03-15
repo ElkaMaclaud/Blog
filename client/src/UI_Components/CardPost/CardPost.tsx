@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { FC } from "react"
 import classes from "./style/CardPost.module.css"
 
-export const CardPost = () => {
-	return (
-		<div className={classes.wrapperCard}>
-			<div className={classes.postHeader}>Making a design system from scratch</div>
-			<div className={classes.postDate}><span>12 Feb 2020</span><span>{"|"}</span><span>Design, Pattern</span></div>
-			<div className={classes.postText}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-				Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
-		</div>
-	)
-}
+export const CardPost: FC<{ header: string; date: string; category: string; description: string }> =
+	({ header, date, category, description }) => {
+		return (
+			<div className={classes.wrapperCard}>
+				<div className={classes.postHeader}>{header}</div>
+				<div className={classes.postDate}><span>{date}</span><span>{"|"}</span><span>{category}</span></div>
+				<div className={classes.postText}>{description}</div>
+			</div>
+		)
+	}
 
 
