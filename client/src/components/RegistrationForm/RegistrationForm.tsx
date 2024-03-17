@@ -16,7 +16,7 @@ const RegistrationForm: FC<{ action: string}> = ({ action }) => {
 	const { success, user, transition } = useAppSelector(state => state.page)
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
-	const [email, setemail] = useState(user.email)
+	const [email, setEmail] = useState(user.email)
 	const [password, setPassword] = useState(user.password)
 	const handleClick = () => {
 		const actionFunction = actionCreators[action];
@@ -35,8 +35,8 @@ const RegistrationForm: FC<{ action: string}> = ({ action }) => {
 	return (
 		<div className={classes.registration}>
 			<h2 className={classes.registration__header}>{action === "REGISTR_USER" ? "Registration" : "Authorization"}</h2>
-			<input value={email} onChange={(event) => setemail(event.target.value)} type="text" placeholder="Введите email..." />
-			<input value={password} onChange={(event) => setPassword(event.target.value)} type="password" placeholder="Введите пароль..." />
+			<input value={email} onChange={(event) => setEmail(event.target.value.trim())} type="text" placeholder="Введите email..." />
+			<input value={password} onChange={(event) => setPassword(event.target.value.trim())} type="password" placeholder="Введите пароль..." />
 			<button className={classes.registration__btn} onClick={handleClick}>{action === "REGISTR_USER" ? "Sign up" : "Sign in"}</button>
 		</div>
 	)

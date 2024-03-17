@@ -9,7 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Heebo", sans-serif;
   background-color: #fff;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 * {
@@ -19,3 +19,4 @@ body {
 a {
   color: black;
 }
+

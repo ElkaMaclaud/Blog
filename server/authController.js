@@ -15,7 +15,10 @@ class authController {
 			if (!errors.isEmpty()) {
 				return res.status(400).json({ success: false, message: "Ошибка при регистрации", errors })
 			}
-			const { email, password } = req.body
+			const { reqEmail, reqPassword } = req.body
+			// Проверка на пробелы не будет излишней в бэке
+			const email = reqEmail.replace(/\s/g, '')
+			const password = reqPassword.replace(/\s/g, '')
 			const users = await readFileUsers()
 			const candidate = users.find(u => u.email === email);
 
@@ -33,7 +36,10 @@ class authController {
 	}
 	async login(req, res) {
 		try {
-			const { email, password } = req.body
+			const { reqEmail, reqPassword } = req.body
+			// Проверка на пробелы не будет излишней в бэке
+			const email = reqEmail.replace(/\s/g, '')
+			const password = reqPassword.replace(/\s/g, '')
 			const users = await readFileUsers()
 			const user = await users.find(u => u.email === email);
 			if (!user) {
