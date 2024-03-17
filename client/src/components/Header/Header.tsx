@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
 import classes from "./style/Header.module.css";
-import { Burger, Cross } from "../../UI_Components";
-import Links from "../Links/Links";
-import { Dropdown } from "../Dropdown/Dropdown";
+import { Burger, Cross, Dropdown } from "../../UI_Components";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,7 +19,11 @@ const Header = () => {
             : <Burger />
           }
         </div>
-        <div className={classes.headerLiks}><Links list={list} /></div>
+          {list.map((link) => {
+            return (
+              <Link to={`/${link}`} key={link}>{link}</Link>
+            )
+          })}
       </div>
     </div>
   );

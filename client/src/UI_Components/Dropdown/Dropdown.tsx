@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 interface DropdownProps {
   children?: ReactNode;
-  list: Array<string>;
+  list?: Array<string>;
   style?: CSSProperties;
 }
 export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
@@ -15,13 +15,12 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
         className={classes.container}
         style={style}
       >
-        <div className={classes.wrapperLink} style={style}>
-          {list.map((link) => {
-            return (
-              <Link to={`/${link}`} key={link}>{link}</Link>
-            )
-          })}
-        </div>
+        {children && children}
+        {list && list.map((link) => {
+          return (
+            <Link to={`/${link}`} key={link}>{link}</Link>
+          )
+        })}
       </div>
     )
   }
