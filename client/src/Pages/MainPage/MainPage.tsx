@@ -7,12 +7,18 @@ import { useAppSelector } from "../../store/reduxHooks";
 import Footer from "../../components/Footer/Footer";
 
 const MainPage = () => {
-  const showModal = useAppSelector(state => state.page.showModal)
+  const showModal = useAppSelector((state) => state.page.showModal);
   return (
     <div className={classes.wrapperPage}>
-      <div className={classes.header}><Header /></div>
-      <div className={classes.content}><Outlet /></div>
-      <div className={classes.footer}><Footer /></div>
+      <div className={classes.header}>
+        <Header />
+      </div>
+      <div className={classes.content}>
+        <Outlet />
+      </div>
+      <div className={classes.footer}>
+        <Footer />
+      </div>
       {showModal && <Modal />}
     </div>
   );

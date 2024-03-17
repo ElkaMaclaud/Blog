@@ -8,7 +8,7 @@ import MainPage from "./Pages/MainPage/MainPage";
 import BlogPage from "./Pages/BlogPage/BlogPage";
 
 function App() {
-  const  token = useAppSelector(state => state.page.token)
+  const token = useAppSelector((state) => state.page.token);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
         <Route path="*" element={<NotfoundPage />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
 export default App;

@@ -11,25 +11,25 @@ export type IResume = {
   avatar: string;
   profession: string;
   description: string;
-}
+};
 export type IPost = {
   header: string;
   date: string;
   category: string;
   description: string;
-}
+};
 export type IWorks = {
   header: string;
   image: string;
   date: string;
   category: string;
   description: string;
-}
+};
 export type IData = {
   resume: IResume;
   posts: IPost[];
   works: IWorks[];
-}
+};
 
 export interface IInitialState {
   transition: boolean;
@@ -55,7 +55,7 @@ const state: IInitialState = {
       description: "",
     },
     posts: [],
-    works: []
+    works: [],
   },
 };
 export const REGISTR_USER = createAsyncThunk<
@@ -115,18 +115,18 @@ export const AUTH_USER = createAsyncThunk<
   }
 });
 export const FETCH_ALL_DATA = createAsyncThunk<
-  { success: boolean; message: string; data: IData},
+  { success: boolean; message: string; data: IData },
   undefined,
   { rejectValue: string; state: RootState }
-  >("page/FETCH_ALL_DATA", async(_, { rejectWithValue, getState }) => {
+>("page/FETCH_ALL_DATA", async (_, { rejectWithValue, getState }) => {
   try {
     const response = await fetch("http://localhost:5000/auth/get_data", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${getState().page.token}`
+        Authorization: `Bearer ${getState().page.token}`,
       },
-    })
+    });
     const data = await response.json();
     if (data.success) {
       return data;
@@ -147,35 +147,37 @@ export const FETCH_FILE = createAsyncThunk<
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${getState().page.token}`
+        Authorization: `Bearer ${getState().page.token}`,
       },
     });
-    const blob = await response.blob(); 
+    const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = "ResumeJohn.doc"; 
-    a.click(); 
+    a.download = "ResumeJohn.doc";
+    a.click();
   } catch (error) {
     return rejectWithValue(`${error}`);
   }
 });
-
 
 const slice = createSlice({
   name: "Page",
   initialState: state,
   reducers: {
     SET_SHOWMODAL: (state, action) => {
-      state.showModal = action.payload
+      state.showModal = action.payload;
     },
     SET_USER_DATA: (state, action) => {
-      state.transition = true
-      state.user = { email: action.payload.email, password: action.payload.password }
+      state.transition = true;
+      state.user = {
+        email: action.payload.email,
+        password: action.payload.password,
+      };
     },
     SET_TRANSISION: (state, action) => {
-      state.transition = action.payload
-    }
+      state.transition = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(REGISTR_USER.fulfilled, (state, action) => {
@@ -195,13 +197,13 @@ const slice = createSlice({
       };
     });
     builder.addCase(AUTH_USER.fulfilled, (state, action) => {
-      localStorage.setItem("access_token", action.payload.token)
+      localStorage.setItem("access_token", action.payload.token);
       return {
         ...state,
         success: true,
         token: action.payload.token,
         message: "Success",
-        showModal: true
+        showModal: true,
       };
     });
     builder.addCase(AUTH_USER.rejected, (state, action) => {
@@ -222,23 +224,22 @@ const slice = createSlice({
           resume: action.payload.data.resume || state.data.resume,
           posts: action.payload.data.posts || [],
           works: action.payload.data.works || [],
-        }
+        },
       };
     });
     builder.addCase(FETCH_ALL_DATA.rejected, (state, action) => {
-      localStorage.setItem("access_token", "")
+      localStorage.setItem("access_token", "");
       return {
         ...state,
         success: false,
         showModal: true,
         message: action.payload as string,
         transition: true,
-        token: ""
+        token: "",
       };
     });
-  }
-})
+  },
+});
 
 export const { SET_SHOWMODAL, SET_USER_DATA, SET_TRANSISION } = slice.actions;
 export default slice.reducer;
-

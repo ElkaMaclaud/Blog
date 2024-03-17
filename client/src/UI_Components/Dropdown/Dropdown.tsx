@@ -10,20 +10,17 @@ interface DropdownProps {
 export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
   ({ children, style, list }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={classes.container}
-        style={style}
-      >
+      <div ref={ref} className={classes.container} style={style}>
         {children && children}
-        {list && list.map((link) => {
-          return (
-            <Link to={`/${link}`} key={link}>{link}</Link>
-          )
-        })}
+        {list &&
+          list.map((link) => {
+            return (
+              <Link to={`/${link}`} key={link}>
+                {link}
+              </Link>
+            );
+          })}
       </div>
-    )
+    );
   }
-)
-
-
+);

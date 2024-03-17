@@ -1,5 +1,5 @@
 # version: "3"
-# services:  
+# services:
 #   aut-server:
 #     build: .
 #     ports:
@@ -8,17 +8,16 @@
 #       - react-app
 #   react-app:
 #     build: ../client
-#     ports: 
+#     ports:
 #       - "3000:3000"
-version: '3'
+version: "3"
 services:
   server:
     build: ./server
     ports:
-      - "5000:5000" 
+      - "5000:5000"
 
   client:
     build: ./client
     ports:
-      - "3000:3000"  
-   
+      - "3000:3000"

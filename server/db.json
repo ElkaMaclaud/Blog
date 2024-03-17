@@ -5,18 +5,6 @@
       "password": "$2a$07$LDGwtFfy/Cs7ydN85Ifibeu./v/AASjKYVQArF9uopBTBq/Wkmvim",
       "_id": "tcs015srq82",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRjczAxNXNycTgyIiwiaWF0IjoxNzEwNjcwMjEzLCJleHAiOjE3MTA3NTY2MTN9.zT1b3uiDIuXr_gq5lrOGNOe9tYH7ILrt4S6NjFY9CRQ"
-    },
-    {
-      "email": "Белатор",
-      "password": "$2a$07$2593xWoUc1FbiTwr8SxsX.QbxiSfO6pRGYkyKqHKutyvv/qZxUXva",
-      "_id": "r2r4cr0r3t4",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InIycjRjcjByM3Q0IiwiaWF0IjoxNzEwNjc0Mzg2LCJleHAiOjE3MTA3NjA3ODZ9.BRn7uI8OJXDrqn2sC5qP-8W_KlT2GTGLgxGO3d4P-g8"
-    },
-    {
-      "email": "Marina",
-      "password": "$2a$07$eBUzqon1vSzZH8uiHqKF7O4n.5kkWFem0bL5VPaboycvuFOjO.iYW",
-      "_id": "7tqrnjfrsc5",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijd0cXJuamZyc2M1IiwiaWF0IjoxNzEwNjc1NjU1LCJleHAiOjE3MTA3NjIwNTV9.diGd3mGl9yKt3qYq-cFqJgubmp629E-9h2Ei2h7n29w"
     }
   ],
   "data": {
