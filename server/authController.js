@@ -4,7 +4,7 @@ const readFileUsers = require("./utils/readFileUsers")
 const generateAccessToken = require("./utils/generateAccessToken")
 const readFileData = require("./utils/readFileData")
 const saveDataToFile = require("./utils/saveDataToFile")
-const deleteUsersToFile = require("./utils/deleteUsersToFile")
+const updateUser = require("./utils/updateUser")
 const path = require('path');
 const fs = require("fs");
 
@@ -23,7 +23,7 @@ class authController {
 				return res.status(400).json({ success: false, message: "Пользователь с таким именем уже существует" })
 			}
 			const hashPassword = bcrypt.hashSync(password, 7);
-			const user = { email, password: hashPassword, id: Math.random().toString(30).substring(2, 15) }
+			const user = { email, password: hashPassword, _id: Math.random().toString(30).substring(2, 15) }
 			saveDataToFile(user)
 			return res.json({ success: true, message: "Пользователь был успешно заригистрирован" })
 		} catch (e) {
@@ -44,9 +44,8 @@ class authController {
 				return res.status(400).json({ success: false, message: `Введен неверный пароль` })
 			}
 			const token = generateAccessToken(user._id)
-			deleteUsersToFile(user)
 			user.token = token
-			saveDataToFile(user)
+			updateUser(user)
 			return res.json({ success: true, token })
 		} catch (e) {
 			console.log(e)

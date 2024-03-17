@@ -1,5 +1,5 @@
 const fs = require("fs");
-module.exports = function saveDataToFile(user) {
+module.exports = function deleteUser(user) {
 	try {
 		const currentUsers = JSON.parse(fs.readFileSync("db.json", "utf8"));
 		const index = currentUsers.users.findIndex(u => u.email === user.email);

@@ -1,22 +1,10 @@
 {
   "users": [
     {
-      "email": "Rubicon",
-      "password": "$2a$07$5B/T/cbkL/oAZXvY4ibkreVa1/jWJBTw.u6SgRPMwYyTsXF2PTfGS",
-      "id": "bmtibb39mm3",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1MDUzNjEsImV4cCI6MTcxMDU5MTc2MX0.fKmBvbk1X4m3zSSokoX1Cxlrqv3OfSRQdohVNq_Fqvg"
-    },
-    {
-      "email": "rrrrrrrrrrrrrr",
-      "password": "$2a$07$iHASgZFOJhYbb4nD4dez5.vb0KjNJHYtLZJ9X7YOVeaCC7AnwQDS2",
-      "id": "bltit7kkcqc",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1MjQ4ODMsImV4cCI6MTcxMDYxMTI4M30._OPdsdxYpFAPjkn8PdQd9IJ7JzMrT3zdiiANFTt1w94"
-    },
-    {
-      "email": "Marshal",
-      "password": "$2a$07$i.5P.UZFGxDfCLWWkRLi6.K0empr9th7wszjxBhM66ooTjk0SgSnW",
-      "id": "nich78e8b5o",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1Mjk1NTYsImV4cCI6MTcxMDYxNTk1Nn0.4zXRT1v2ktFuRaiSZXxt6dhCRwPzZKnxWmp5j8UHZCc"
+      "email": "ElkaMaclaud",
+      "password": "$2a$07$LDGwtFfy/Cs7ydN85Ifibeu./v/AASjKYVQArF9uopBTBq/Wkmvim",
+      "_id": "tcs015srq82",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRjczAxNXNycTgyIiwiaWF0IjoxNzEwNjcwMjEzLCJleHAiOjE3MTA3NTY2MTN9.zT1b3uiDIuXr_gq5lrOGNOe9tYH7ILrt4S6NjFY9CRQ"
     }
   ],
   "data": {
