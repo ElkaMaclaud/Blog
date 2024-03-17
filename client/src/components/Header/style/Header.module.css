@@ -12,28 +12,22 @@
     gap: 22px;
 }
 
-.header a {
-    color: black;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 29px;
-    transition: .1s ease-in-out;
-}
-
 .headerMobile {
     display: none;
-    width: 40px;
-    height: 30px;
+    width: 100%;
+    height: fit-content;
+    padding-right: 0;
 }
 
-.header a:hover {
-    color: blue
-}
 @media screen and (max-width: 850px) {
-    .header a {
+    .headerWrapper {
+        padding: 0 30px;
+    }
+    .headerLiks {
         display: none;
     }
     .headerMobile {
-        display: block;
+        display: flex;
+        justify-content: right;
     }
 }

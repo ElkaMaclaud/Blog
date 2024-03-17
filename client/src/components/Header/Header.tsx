@@ -1,10 +1,13 @@
-import React, {useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import classes from "./style/Header.module.css";
-import { Link } from "react-router-dom";
-import { Burger, Cross, Dropdown } from "../../UI_Components";
+import { Burger, Cross } from "../../UI_Components";
+import Links from "../Links/Links";
+import { Dropdown } from "../Dropdown/Dropdown";
+
 const Header = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false)
+  const list = ["Works", "Blog", "Contact"]
   return (
     <div className={classes.headerWrapper}>
       <div className={classes.header}>
@@ -12,20 +15,12 @@ const Header = () => {
           {active ?
             <div>
               <Cross />
-              <Dropdown ref={ref}>
-                <React.Fragment>
-                  <Link to="/Works">Works</Link>
-                  <Link to="/Blog">Blog</Link>
-                  <Link to="/Contact">Contact</Link>
-                </React.Fragment>
-              </Dropdown>
+              <Dropdown ref={ref} list={list} />
             </div>
             : <Burger />
           }
         </div>
-          <Link to="/Works">Works</Link>
-          <Link to="/Blog">Blog</Link>
-          <Link to="/Contact">Contact</Link>
+        <div className={classes.headerLiks}><Links list={list} /></div>
       </div>
     </div>
   );
