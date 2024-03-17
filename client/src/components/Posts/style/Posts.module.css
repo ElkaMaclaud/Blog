@@ -34,36 +34,30 @@
 }
 
 .post {
-	width: 418px;
-	height: 295px;
+  max-width: 418px;
+  height: calc(418px / 1.4169);
 }
 
 @media screen and (max-width: 850px) {
-	.posts {
-		width: 100%;
-		height: auto;
-		margin: 0;
-		padding: 10px;
-	}
+  .posts {
+    margin: 0 -50px;
+    padding: 0 50px 41px 50px;
+  }
 
-	.postsWrapper {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+  .postsWrapper {
+    flex-wrap: wrap;
+  }
 
-	.post {
-		width: 100%;
-	}
+  .post {
+    min-width: 100%;
+    height: calc((100vh + 101px) / 1.4169);
+  }
 
-	.postsHeader {
-		justify-content: center;
-	}
+  .postsHeader {
+    justify-content: center;
+  }
 
-	.postsHeaderAll {
-		display: none;
-	}
-
-
-
+  .postsHeaderAll {
+    display: none;
+  }
 }
