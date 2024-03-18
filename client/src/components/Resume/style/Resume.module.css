@@ -2,7 +2,7 @@
 	padding: 27px 0;
 	display: flex;
 	justify-content: space-between;
-	gap: 2rem;
+	gap: 2em;
 }
 
 .description {
@@ -81,6 +81,8 @@
 	}
 
 	.descriptionText {
+		font-style: 2em;
+		line-height: 1.4em;
 		text-align: center;
 	}
 }

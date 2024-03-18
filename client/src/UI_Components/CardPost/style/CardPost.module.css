@@ -6,7 +6,7 @@
   padding: var(--padding);
   min-width: 100%;
   min-height: 100%;
-  border-radius: 0.35rem;
+  border-radius: 0.35em;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
 }
 
 .postHeader {
-  font-size: 1.8rem;
+  font-size: 1.8em;
   font-weight: 700;
   line-height: 38px;
 }
@@ -44,8 +44,8 @@
   }
 
   .postHeader {
-    font-size: 3rem;
-    line-height: 4em;
+    font-size: 4em;
+    line-height: 3em;
   }
 
   .postDate {
@@ -56,8 +56,8 @@
   }
 
   .postText {
-    font-size: 2em;
-    line-height: 2.2em;
+    font-size: 2.5em;
+    line-height: 2em;
     max-height: 8em;
   }
 }
