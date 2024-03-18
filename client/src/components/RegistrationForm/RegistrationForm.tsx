@@ -21,12 +21,15 @@ const RegistrationForm: FC<{ action: string }> = ({ action }) => {
   const { success, user, transition } = useAppSelector((state) => state.page);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ email: user.email, password: user.password });
+  const [formData, setFormData] = useState({
+    email: user.email,
+    password: user.password,
+  });
   const handleClick = (event: any) => {
     event.preventDefault();
     const actionFunction = actionCreators[action];
     if (actionFunction) {
-      dispatch(actionFunction({ ...formData}));
+      dispatch(actionFunction({ ...formData }));
       dispatch(SET_USER_DATA({ ...formData }));
     }
   };
@@ -47,7 +50,10 @@ const RegistrationForm: FC<{ action: string }> = ({ action }) => {
           value={formData.email}
           name="email"
           onChange={(event) =>
-            setFormData((user) => ({ ...user, email: event.target.value.trim() }))
+            setFormData((user) => ({
+              ...user,
+              email: event.target.value.trim(),
+            }))
           }
           type="text"
           placeholder="Введите email..."
@@ -56,12 +62,18 @@ const RegistrationForm: FC<{ action: string }> = ({ action }) => {
           value={formData.password}
           name="password"
           onChange={(event) =>
-            setFormData((user) => ({ ...user, password: event.target.value.trim() }))
+            setFormData((user) => ({
+              ...user,
+              password: event.target.value.trim(),
+            }))
           }
           type="password"
           placeholder="Введите пароль..."
         />
-        <button className={classes.registration__btn}>
+        <button
+          className={classes.registration__btn}
+          disabled={!formData.email || !formData.password}
+        >
           {action === "REGISTR_USER" ? "Sign up" : "Sign in"}
         </button>
       </form>

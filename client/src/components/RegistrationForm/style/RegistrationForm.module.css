@@ -29,6 +29,10 @@ button {
 button:hover {
 	background-color: #D6EDEE;
 }
+button:disabled:hover {
+  background-color: #EDF7FA;
+  cursor:default;
+}
 a {
 	text-align: center;
 	text-decoration: none;
