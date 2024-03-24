@@ -81,7 +81,7 @@ class authController {
       // Проверяю токен в базе данных присутствует ли такой такой токен (жив ли ещё токен)
       const users = await readFileUsers();
       const user = await users.find((u) => u.token === token);
-      if (!user) {
+      if (!user || !token) {
         return res
           .status(400)
           .json({ success: false, message: `Ошибка авторизации` });
